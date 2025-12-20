@@ -55,14 +55,3 @@ Instructions on setting up and using Gene-Master will be available in this secti
 3.  **Submitting a Query:** A guide on how to formulate and submit your first privacy-preserving query.
 
 ---
-
-## 🤝 Contribution
-
-We welcome contributions from the community. Please refer to our contributing guidelines and submit a pull request on my GitHub, **saadsalmanakram**, if you'd like to help us build the future of secure genomic data mining.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the `LICENSE.md` file for details.
-
