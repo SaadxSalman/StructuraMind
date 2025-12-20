@@ -11,17 +11,43 @@
 
 ---
 
-## 🛠️ Tech Stack
+The final stack for **Gene-Master** is a cutting-edge "Polyglot" architecture. It combines high-level web frameworks for the user experience, specialized AI agents for logic, and low-level system languages for high-performance cryptography.
 
--   **Frontend & Framework:** **Next.js (MERN Stack)** - Utilizing Next.js for a performant, SEO-friendly React framework that handles both client-side and server-side rendering seamlessly.
--   **Language:** **TypeScript** - Enforcing strict typing across the entire stack to ensure code reliability and maintainability, especially critical for handling complex genomic data structures.
--   **Styling:** **Tailwind CSS** - A utility-first CSS framework used to build a highly responsive, modern, and accessible user interface for researchers.
--   **Backend:** **Node.js & Express** - Powering the application logic and API orchestration, facilitating smooth communication between the frontend and the agentic AI system.
--   **Database:** **MongoDB** - Used within the MERN architecture to manage user profiles, query history, and non-vectorized application data.
--   **Smart Contracts & Blockchain:** **Solana and Anchor** ☀️ - Solana's high throughput and low transaction fees are ideal for managing the decentralized database index and agent coordination. Anchor provides a streamlined framework for writing secure smart contracts in Rust.
--   **Secure Computation Engine:** **Rust** 🦀 - The core computation engine is written in Rust, ensuring memory safety and high performance for cryptographic computations.
--   **Vector Database & Search:** **Weaviate** - Used for storing and searching molecular embeddings, enabling powerful hybrid search functionality.
--   **User Authentication:** **Clerk** - Manages secure user access and permissions for researchers with a scalable authentication layer.
+### 🌐 Frontend & User Interface
+
+* **Next.js (App Router):** The core framework, providing Server-Side Rendering (SSR) for SEO and high performance.
+* **TypeScript:** Used throughout the frontend for robust, type-safe development.
+* **Tailwind CSS:** For building a modern, responsive, and accessible "research-first" UI.
+* **Clerk:** Handles enterprise-grade authentication and researcher permissions.
+* **Recharts:** A composable charting library used for rendering complex genomic visualizations like Manhattan Plots.
+
+### 🧠 Agentic AI System
+
+* **LangChain:** The orchestration framework used to chain AI agents and manage prompt templates.
+* **GPT-4o / LLMs:** Powering the **Query Agent** to translate natural language into structured data queries.
+* **Zod:** Used for strict schema validation of AI outputs to ensure the agents follow the protocol.
+
+### 🔒 Privacy & Secure Computation
+
+* **Rust:** The primary language for the secure computation engine, chosen for its memory safety and speed.
+* **NAPI-RS:** The bridge that allows the Node.js backend to call Rust functions as native modules.
+* **TFHE-rs (Zama):** A library for Fully Homomorphic Encryption, allowing math on encrypted genomic data.
+* **Differential Privacy:** Algorithmic noise layers (Laplace/Gaussian) applied to outputs to prevent re-identification.
+
+### ☀️ Blockchain & Trust Layer
+
+* **Solana:** A high-throughput blockchain used for maintaining a decentralized, immutable audit log of all queries.
+* **Anchor Framework:** A developer suite for writing secure Solana programs (smart contracts) in Rust.
+
+### 🗄️ Database & Search
+
+* **Weaviate:** A vector database used to store and search molecular embeddings via hybrid search (Vector + Keyword).
+* **MongoDB:** A NoSQL database for managing user metadata, audit trails, and non-vector application data.
+
+### 🐳 Infrastructure & DevOps
+
+* **Docker & Docker Compose:** Containerization for consistent development and deployment across all microservices.
+* **PDFKit:** Used on the backend to generate cryptographically signed research reports.
 
 ---
 
@@ -67,5 +93,66 @@ Instructions on setting up and using Gene-Master will be available in this secti
 1.  **Environment Setup:** How to install the necessary tools and dependencies.
 2.  **Running the Agents:** Commands to launch and interact with the Query, Computation, and Validation Agents.
 3.  **Submitting a Query:** A guide on how to formulate and submit your first privacy-preserving query.
+
+---
+
+To wrap everything up, here is the complete, finalized file structure for **Gene-Master**. This structure accounts for the monorepo design, the Rust-to-Node bridge, the AI agent system, the Solana programs, and the Dockerized infrastructure.
+
+### 📂 Project Directory
+
+```text
+gene-master/
+├── apps/
+│   ├── frontend/                 # Next.js + TypeScript + Tailwind
+│   │   ├── src/
+│   │   │   ├── app/
+│   │   │   │   ├── dashboard/    # Research Dashboard
+│   │   │   │   ├── layout.tsx    # Clerk & Solana Wallet Providers
+│   │   │   │   └── page.tsx      # Landing Page
+│   │   │   ├── components/
+│   │   │   │   ├── ManhattanPlot.tsx # Recharts Visualization
+│   │   │   │   ├── AgentTerminal.tsx # Real-time Agent Logs
+│   │   │   │   └── ExportButton.tsx  # PDF Report Trigger
+│   │   │   └── lib/
+│   │   │       ├── solana.ts     # Connection to Anchor Program
+│   │   │       └── utils.ts      # Tailwind merging
+│   │   └── next.config.js
+│   │
+│   └── backend/                  # Node.js + Express + LangChain
+│       ├── src/
+│       │   ├── agents/
+│       │   │   ├── QueryAgent.ts       # NLP Translator
+│       │   │   ├── ComputationAgent.ts # Rust Bridge Caller
+│       │   │   └── ValidationAgent.ts  # DP & Privacy Guard
+│       │   ├── services/
+│       │   │   ├── weaviate.ts         # Vector DB Client
+│       │   │   ├── solana.ts           # Anchor/Web3.js Logic
+│       │   │   └── reportService.ts    # PDFKit Generation
+│       │   ├── models/
+│       │   │   ├── User.ts             # MongoDB Schema
+│       │   │   └── AuditLog.ts         # Query History
+│       │   └── index.ts                # Main API Entry Point
+│       ├── Dockerfile
+│       └── package.json
+│
+├── packages/
+│   ├── computation-engine/       # Rust Core (TFHE / NAPI-RS)
+│   │   ├── src/
+│   │   │   └── lib.rs            # Homomorphic Math & Node Exports
+│   │   ├── Cargo.toml            # Rust Dependencies (tfhe, napi)
+│   │   └── package.json          # NAPI-RS build scripts
+│   │
+│   └── anchor-program/           # Solana Smart Contracts
+│       ├── programs/
+│       │   └── gene-master/
+│       │       └── src/lib.rs    # Rust Smart Contract logic
+│       ├── tests/                # Anchor TS tests
+│       └── Anchor.toml           # Solana Config
+│
+├── docker-compose.yml            # Weaviate + MongoDB + Backend
+├── .env                          # API Keys & RPC URLs
+└── package.json                  # Root Workspace Config
+
+```
 
 ---
