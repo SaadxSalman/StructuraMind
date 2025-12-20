@@ -13,15 +13,15 @@
 
 ## 🛠️ Tech Stack
 
--   **Frontend & Fullstack Framework:** **Next.js (MERN Stack)** - Utilizing Next.js for a unified, server-side rendered React application that handles both the researcher dashboard and API routing.
--   **Language:** **TypeScript** - Ensures type safety and robust code architecture across the entire application, particularly for complex genomic data structures.
--   **Styling:** **Tailwind CSS** - A utility-first CSS framework used for building a clean, responsive, and modern user interface.
--   **Backend & Middleware:** **Node.js & Express** - Powers the server-side logic and agent orchestration layers.
--   **Database (State/Metadata):** **MongoDB** - Used for managing non-genomic data, such as researcher profiles, query history, and system logs.
--   **Smart Contracts & Blockchain:** **Solana and Anchor** ☀️ - Solana's high throughput and low transaction fees are ideal for managing the decentralized database index and agent coordination. Anchor provides a streamlined framework for writing secure smart contracts (called programs on Solana) in Rust.
--   **Secure Computation Engine:** **Rust** 🦀 - The core computation engine is written in Rust, a language known for its memory safety, performance, and concurrency. These features are critical for ensuring the security and efficiency of the cryptographic computations.
--   **Database & Search:** **Weaviate** - As a vector database, Weaviate is used for storing and searching the molecular embeddings, enabling the powerful hybrid search functionality.
--   **User Authentication:** **Clerk** - Clerk is used to manage user access and permissions for researchers, providing a secure and scalable authentication layer for the platform.
+-   **Frontend & Framework:** **Next.js (MERN Stack)** - Utilizing Next.js for a performant, SEO-friendly React framework that handles both client-side and server-side rendering seamlessly.
+-   **Language:** **TypeScript** - Enforcing strict typing across the entire stack to ensure code reliability and maintainability, especially critical for handling complex genomic data structures.
+-   **Styling:** **Tailwind CSS** - A utility-first CSS framework used to build a highly responsive, modern, and accessible user interface for researchers.
+-   **Backend:** **Node.js & Express** - Powering the application logic and API orchestration, facilitating smooth communication between the frontend and the agentic AI system.
+-   **Database:** **MongoDB** - Used within the MERN architecture to manage user profiles, query history, and non-vectorized application data.
+-   **Smart Contracts & Blockchain:** **Solana and Anchor** ☀️ - Solana's high throughput and low transaction fees are ideal for managing the decentralized database index and agent coordination. Anchor provides a streamlined framework for writing secure smart contracts in Rust.
+-   **Secure Computation Engine:** **Rust** 🦀 - The core computation engine is written in Rust, ensuring memory safety and high performance for cryptographic computations.
+-   **Vector Database & Search:** **Weaviate** - Used for storing and searching molecular embeddings, enabling powerful hybrid search functionality.
+-   **User Authentication:** **Clerk** - Manages secure user access and permissions for researchers with a scalable authentication layer.
 
 ---
 
