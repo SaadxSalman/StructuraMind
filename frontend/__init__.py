@@ -1,0 +1,1 @@
+"""StructuraMind Streamlit frontend."""
